@@ -1,0 +1,134 @@
+#emp 테이블 만들기
+
+alter session set nls_Date_format='RR/MM/DD';
+
+drop table emp;
+drop table dept;
+
+
+
+CREATE TABLE DEPT
+       (DEPTNO number(10),
+        DNAME VARCHAR2(14),
+        LOC VARCHAR2(13) );
+
+
+
+INSERT INTO DEPT VALUES (10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO DEPT VALUES (20, 'RESEARCH',   'DALLAS');
+INSERT INTO DEPT VALUES (30, 'SALES',      'CHICAGO');
+INSERT INTO DEPT VALUES (40, 'OPERATIONS', 'BOSTON');
+
+
+CREATE TABLE EMP (
+ EMPNO               NUMBER(4) NOT NULL,
+ ENAME               VARCHAR2(10),
+ JOB                 VARCHAR2(9),
+ MGR                 NUMBER(4) ,
+ HIREDATE            DATE,
+ SAL                 NUMBER(7,2),
+ COMM                NUMBER(7,2),
+ DEPTNO              NUMBER(2) );
+
+
+
+INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,'81-11-17',5000,NULL,10);
+INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,'81-05-01',2850,NULL,30);
+INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,'81-05-09',2450,NULL,10);
+INSERT INTO EMP VALUES (7566,'JONES','MANAGER',7839,'81-04-01',2975,NULL,20);
+INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,'81-09-10',1250,1400,30);
+INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,'81-02-11',1600,300,30);
+INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,'81-08-21',1500,0,30);
+INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,'81-12-11',950,NULL,30);
+INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,'81-02-23',1250,500,30);
+INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,'81-12-11',3000,NULL,20);
+INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,'80-12-09',800,NULL,20);
+INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,'82-12-22',3000,NULL,20);
+INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,'83-01-15',1100,NULL,20);
+INSERT INTO EMP VALUES (7934,'MILLER','CLERK',7782,'82-01-11',1300,NULL,10);
+
+commit;
+
+#emp12 (빅데이터 12기 테이블) 만들기
+
+create  user  scott   identified  by  tiger;
+
+grant  dba   to  scott;
+
+connect  scott/tiger  
+
+
+drop  table  emp12;
+
+create  table  emp12
+( ename    varchar2(10),
+  age    number(10),
+  gender   varchar2(10),
+  major    varchar2(40),
+  telecom   varchar2(20),
+  email    varchar2(60),
+  address  varchar2(100) );
+
+
+insert   into   emp12  values('이준혁', 29, '남', '경영학과', 'kt', '3461419@naver.com', '경기도 안양시 동안구 호개동' ); 
+
+insert into emp12 values('한결', 31, '남', '경제학과', 'kt', 'gksruf90@naver.com', '경기도 광주시 곤지암읍 삼리');
+
+insert into emp12 values('현지연', 35, '여', '관광경영학과', 'sk', 'hyunjy86@naver.com','경기도 안산시 상록구 본삼로');
+
+insert into emp12 values('성기창',29,'남','경영학과','SK','goboy2005@gmail.com','서울시 양천구 목5동');
+
+insert into emp12 values('유혜영', 28, '여', '응용통계학과', 'skt', 'jjku0519@naver.com', '경기도 안산시 단원구 고잔동');
+
+insert into emp12  Values('김정민', 28, '남', '메카트로닉스과', 'lg', 'rlawjdals113@naver.com', '경기도 시흥시 은행동');
+
+insert into emp12 values('이성원', 25, '남', '통계학과', 'kt', 'pumadd1227@gmail.com', '경기도 성남시 수정구 고등동');
+
+insert into emp12 values('김정원',28,'여','수학통계학과','kt','jungwkim415@gmail.com','경기도 성남시 분당구 정자동');
+
+insert into emp12  values ('김미승', 27, '여', '금융학과', 'lg', 'miseung.hailey@gmail.com', '경기도 용인시 수지구 성복동');
+
+Insert into emp12 Values('김예린', 27, '여', '컨벤션경영학과', 'kt', 'marykim1205@naver.com', '경기도 성남시 분당구 운중동');
+
+insert into emp12 values('신현종', 27, '남', '병원행정학과', 'lg', 'ad_guswhd@naver.com', '경기도 성남시 중원구 성남동');
+
+insert into emp12 values('구윤모', 26, '남', '사회학과', 'sk', 'kooym5@naver.com', '서울시 광진구 광장동');
+
+insert into emp12 values('김승순',33,'남','국제통상학과','skt','nostelgia18@gmail.com','서울시 도봉구 쌍문동');
+
+insert into emp12 values('허정민', 30, '여', '마케팅학과', 'sk', 'gwa1103@hanmail.net', '경기도 수원시 영통구 이의동');
+
+insert into emp12 values('이신성', 27, '남', '경제학과', 'sk', 'icecreamn2@naver,com', '강원도 속초시 교동');
+
+insert into emp12 values('황나현', 27,'여', '광고학과', 'kt', 'nhyun0901@naver.com', '서울 노원구 상계동');
+
+insert into emp12 values('장수진', 25, '여', '음악학과', 'kt', 'sujin5277@naver.com', '경기도 안양시 만안구 안양동');
+
+insert into emp12 values('권준환', 28, '남', '국문학과', 'kt', 'kjunh934@naver.com', '서울시 금천구 독산동');
+
+insert into emp12 values('송종미', '29', '여', ' 정보통계학과', 'kt', 'thdwhdal@naver.com', '경기도 남양주시 다산2동');
+
+insert into emp12 values('정희원', 24, '여', '전자공학과', 'sk', 'hikbm8@naver.com', '경기도 고양시 일산서구 탄현동');
+
+insert into emp12 values('김홍비', 24, '여', '호텔조리학과', 'kt', 'ghdql9703@naver.com', '경기도 구리시 토평동');
+
+insert into emp12 values('김소라', '29', '여', '영어영문학과', 'kt', 'sorakorean@naver.com', '서울시 서초구 방배동');
+
+insert into emp12 values('권세원', 36, '남', '요리학과', 'sk', 'bigneva84@gmail.com' , '서울시 송파구 장지동');
+
+insert into emp12 values('정다희', 26, '여', '통계학과', 'kt', 'wjdekgml707@naver.com', '서울시 송파구 장지동' );
+
+insert into emp12 values('허혁', 26, '남', '통게학과', 'kt', 'h6729772@naver.com', ' 경기도 용인시 수지구 풍덕천동');
+
+insert into emp12 values('양건준', 26, '남', '경영학과', 'sk', 'skysk8er@naver.com', '서울시 성동구 옥수동');
+
+insert into emp12 values('김주원',44,'여','경제학과','lg','kjwlji@gmail.com','서울시 서대문구 홍은동');
+
+insert into emp12 values('박혜진', 28, '여', '응용수학과', 'sk', 'qkrwls93@nate.com', '서울시 관악구 봉천로');
+
+insert into emp12 values('하상준', 29, '남', '무역학과', 'kt', 'tkdwns1942@naver.com', '서울시 서초구 서초동');
+
+insert into emp12 values('홍재연', 28, '여', '경제학과', 'kt', 'hongjaeyeon@naver.com', '서울시 서초구 서초동');
+
+commit;
+
