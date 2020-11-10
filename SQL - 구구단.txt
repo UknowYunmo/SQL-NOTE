@@ -1,0 +1,43 @@
+예제1 : 숫자 1과 2를 출력하는 SQL문
+
+select level
+ from dual
+ connect by level<=2;
+
+예제2 : 위의 결과를 from 절의 서브 쿼리로 만들고, emp 테이블과 조인
+
+select empno, ename, sal
+ from emp e, (select level
+from dual
+connect by level <= 2 );
+
+** emp 테이블의 모든 데이터가 숫자 1과 조인해서 14개 출력하고
+   emp 테이블의 모든 데이터가 숫자 2와 조인해서 14개 출력해서
+   총 28개가 출력되었다.
+
+예제3 : 숫자를 1부터 9까지 출력하는 SQL 문
+
+select level
+ from dual
+ connect by level<=9;
+
+예제4 : 위의 숫자를 1부터 9까지 출력하는 SQL 문을 아래와 같이 FROM절의
+	서브 쿼리로 2개로 만드시오
+
+select a.num1, b.num2
+ from ( select level as num1
+	from dual
+	connect by level <=9 ) a,
+ 	 ( select level num2
+      	from dual
+	connect by level <=9 ) b;
+
+예제 5: 구구단 출력
+
+select a.num1+1 || ' * ' || b.num2 || ' = ' || (a.num1+1)*b.num2 
+  from ( select level as num1
+            from dual
+            connect by level <=8 ) a,
+        ( select level num2
+            from dual
+            connect by level <=9 ) b;
