@@ -1,2 +1,2 @@
 # SQL-study
-SQL 공부중이요
+SQL 아기가 타고 있어요
