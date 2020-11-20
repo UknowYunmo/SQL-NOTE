@@ -322,7 +322,31 @@ emp --> dept --> salgrade 순으로 조회하도록 해보면?
 select /*+ gather_plan_statistics leading(e d s) use_nl(e d s) */ e.ename, e.sal, d.loc, s.grade
  from dept d, emp e, salgrade s
  where e.deptno=d.deptno and e.sal between s.losal and s.hisal and e.ename='KING';
-
+ 
 SELECT * FROM TABLE(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
-
+ 
 버퍼가 19개로 거의 절반 가량 줄어있는 것을 확인할 수 있다!
+
+-----------------
+ 
+정리 :
+
+데이터 튜닝을 해야할 때
+
+1. 조인 순서를 정한다.
+
+2. 조인 방법을 정한다.
+
+이 두 가지 관점으로 대하자
+
+1. 조인 순서는 어느 쪽이 대용량인지를 생각해서
+
+적은 쪽을 먼저 읽도록 순서를 정하면 된다!
+
+만약 where 절이 있다면, 그 절을 모두 실행시켜봐서
+
+어느 쪽이 더 적은 양인지 확인해보고,
+
+마찬가지로 적은 쪽을 먼저 읽도록 순서를 정하자.
+
+2. (조인 방법)은 다음 목차( SQL - HASH JOIN, SORT MERGE JOIN )에서!
